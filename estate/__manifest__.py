@@ -16,6 +16,7 @@
         'security/ir.model.access.csv',
         'views/estate_property_views.xml',
         'views/estate_menus.xml',
+        'views/estate_property_list_view.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [],
