@@ -8,9 +8,12 @@
                 <filter name="name"/>
                 <filter name="postcode"/>
                 <filter name="expected_price"/>
-<!--                <filter name="bedrooms" string="Bedrooms"/>-->
-<!--                <filter name="living_area" string="Living Area"/>-->
-<!--                <filter name="facades" string="Facades"/>-->
+                <filter name="bedrooms"/>
+                <filter name="living_area"/>
+                <filter name="facades"/>
+                <group expand="0" string="Group by">
+                    <filter name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
             </search>
         </field>
     </record>
