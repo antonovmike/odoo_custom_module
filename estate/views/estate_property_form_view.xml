@@ -24,6 +24,7 @@
                         <notebook>
                             <page string="Details">
                                 <group>
+                                    <field name="description" string="Description"/>
                                     <field name="facades" string="Facades"/>
                                     <field name="garage" string="Garage"/>
                                     <field name="garden" string="Garden"/>

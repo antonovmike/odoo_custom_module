@@ -2,18 +2,15 @@
 <odoo>
     <record id="estate_property_search_view" model="ir.ui.view">
         <field name="name">estate.property.search</field>
-<!--        <field name="model">estate.property</field>-->
-        <field name="res_model">estate.property</field>
-        <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="estate_property_search_view"/>
+        <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <search string="Search Properties">
-                <filter name="name" string="Name"/>
-                <filter name="postcode" string="Postcode"/>
-                <filter name="expected_price" string="Expected Price"/>
-                <filter name="bedrooms" string="Bedrooms"/>
-                <filter name="living_area" string="Living Area"/>
-                <filter name="facades" string="Facades"/>
+                <filter name="name"/>
+                <filter name="postcode"/>
+                <filter name="expected_price"/>
+<!--                <filter name="bedrooms" string="Bedrooms"/>-->
+<!--                <filter name="living_area" string="Living Area"/>-->
+<!--                <filter name="facades" string="Facades"/>-->
             </search>
         </field>
     </record>
