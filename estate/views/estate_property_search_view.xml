@@ -2,7 +2,10 @@
 <odoo>
     <record id="estate_property_search_view" model="ir.ui.view">
         <field name="name">estate.property.search</field>
-        <field name="model">estate.property</field>
+<!--        <field name="model">estate.property</field>-->
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="estate_property_search_view"/>
         <field name="arch" type="xml">
             <search string="Search Properties">
                 <filter name="name" string="Name"/>

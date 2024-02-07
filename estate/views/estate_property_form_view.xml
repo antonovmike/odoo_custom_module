@@ -15,27 +15,32 @@
                             <field name="expected_price"/>
                             <field name="selling_price"/>
                         </group>
-                    </group>
+                        <group>
 
-                    <notebook>
-<!-- Page 1-->
-                        <page string="Details">
                             <field name="bedrooms"/>
                             <field name="living_area"/>
-                            <field name="facades"/>
-                            <field name="garage"/>
-                            <field name="garden"/>
-                            <field name="garden_area"/>
-                            <field name="garden_orientation"/>
-                        </page>
-<!-- Page 2-->
-                        <page string="Availability">
-                            <field name="date_availability"/>
-                            <field name="active"/>
-                            <field name="state"/>
-                        </page>
-                    </notebook>
+                        </group>
 
+                        <notebook>
+                            <page string="Details">
+                                <group>
+                                    <field name="facades" string="Facades"/>
+                                    <field name="garage" string="Garage"/>
+                                    <field name="garden" string="Garden"/>
+                                    <field name="garden_area" string="Garden area"/>
+                                    <field name="garden_orientation" string="Garden orientation"/>
+                                </group>
+                            </page>
+
+                            <page string="Availability">
+                                <group>
+                                    <field name="date_availability" string="Date availability"/>
+                                    <field name="active" string="Active"/>
+                                    <field name="state" string="State"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
                 </sheet>
             </form>
         </field>
