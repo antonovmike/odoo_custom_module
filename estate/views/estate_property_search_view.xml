@@ -11,9 +11,11 @@
                 <filter name="bedrooms"/>
                 <filter name="living_area"/>
                 <filter name="facades"/>
+
+                <filter name="state" string="Property State" domain="[('state','in',['new','offer_received'])]"/>
+
                 <group expand="0" string="Group by">
-                    <filter name="name" domain="[]" context="{'group_by':'name'}"/>
-                </group>
+                    <filter name="postcode" string="Postcode" domain="[]" context="{'group_by':'postcode'}"/>                </group>
             </search>
         </field>
     </record>
