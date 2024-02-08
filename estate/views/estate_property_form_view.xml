@@ -16,7 +16,6 @@
                             <field name="selling_price"/>
                         </group>
                         <group>
-
                             <field name="bedrooms"/>
                             <field name="living_area"/>
                         </group>
