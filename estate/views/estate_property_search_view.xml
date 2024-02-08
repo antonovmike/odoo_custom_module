@@ -15,7 +15,8 @@
                 <filter name="state" string="Property State" domain="[('state','in',['new','offer_received'])]"/>
 
                 <group expand="0" string="Group by">
-                    <filter name="postcode" string="Postcode" domain="[]" context="{'group_by':'postcode'}"/>                </group>
+                    <filter name="postcode" string="Postcode" domain="[]" context="{'group_by':'postcode'}"/>
+                </group>
             </search>
         </field>
     </record>

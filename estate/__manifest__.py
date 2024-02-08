@@ -19,6 +19,7 @@
         'views/estate_property_list_view.xml',
         'views/estate_property_form_view.xml',
         'views/estate_property_search_view.xml',
+        'views/estate_property_type_views.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': [],
