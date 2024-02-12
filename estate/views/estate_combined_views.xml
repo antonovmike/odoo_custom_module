@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Actions -->
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="estate_property_type_action" model="ir.actions.act_window">
+        <field name="name">Property Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">estate.property.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="estate_property_tag_action" model="ir.actions.act_window">
+        <field name="name">Property Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">estate.property.tag</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- ... -->
+
+    <!-- Menus -->
+    <menuitem id="estate_menu_root" name="Add new estate">
+        <menuitem id="estate_property_menu_action" action="estate_property_action"/>
+
+        <menuitem id="estate_first_level_menu" name="Tags and Types">
+            <menuitem id="estate_property_tag_menu_action" action="estate_property_tag_action"/>
+            <menuitem id="estate_property_type_menu_action" action="estate_property_type_action"/>
+        </menuitem>
+    </menuitem>
+    <!-- ... -->
+
+    <!-- Views -->
+    <record id="estate_property_tree_view" model="ir.ui.view">
+        <field name="name">estate.property.tree</field>
+        <field name="model">estate.property</field>
+
+        <field name="arch" type="xml">
+            <tree string="Properties">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="expected_price"/>
+                <field name="active"/>
+                <field name="property_type_id"/>
+                <!-- The other fields -->
+            </tree>
+            <tree string="Property Tags">
+                <field name="tag_ids"/>
+            </tree>
+        </field>
+    </record>
+    <!-- ... -->
+
+    <!-- Property Form View -->
+    <record id="estate_property_form_view" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Property">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="postcode"/>
+                        </group>
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                        </group>
+                        <group>
+                            <field name="bedrooms"/>
+                            <field name="living_area"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Details">
+                                <group>
+                                    <field name="description" string="Description"/>
+                                    <field name="facades" string="Facades"/>
+                                    <field name="garage" string="Garage"/>
+                                    <field name="garden" string="Garden"/>
+                                    <field name="garden_area" string="Garden area"/>
+                                    <field name="garden_orientation" string="Garden orientation"/>
+                                </group>
+                            </page>
+
+                            <page string="Availability">
+                                <group>
+                                    <field name="date_availability" string="Date availability"/>
+                                    <field name="active" string="Active"/>
+                                    <field name="state" string="State"/>
+                                </group>
+                            </page>
+
+                            <page name="buyer_and_salesperson" string="Buyer and Salesperson" sequence="3">
+                                <group>
+                                    <field name="buyer_id"/>
+                                    <field name="salesperson_id"/>
+                                </group>
+                            </page>
+
+                            <page name="type_and_tags" string="Type and Tags" sequence="4">
+                                <group>
+                                    <field name="property_type_id"/>
+                                    <field name="tag_ids"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ... -->
+
+    <!-- Search View -->
+    <record id="estate_property_search_view" model="ir.ui.view">
+        <field name="name">estate.property.search</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <search string="Search Properties">
+                <filter name="name"/>
+                <filter name="postcode"/>
+                <filter name="expected_price"/>
+                <filter name="bedrooms"/>
+                <filter name="living_area"/>
+                <filter name="facades"/>
+
+                <filter name="state" string="Property State" domain="[('state','in',['new','offer_received'])]"/>
+
+                <filter name="property_type_id" string="Property Type" domain="[]"/>
+
+                <group expand="0" string="Group by">
+                    <filter name="postcode" string="Postcode" domain="[]" context="{'group_by':'postcode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- ... -->
+
+    <!-- Property Type Views -->
+    <record id="estate_property_type_tree_view" model="ir.ui.view">
+        <field name="name">estate.property.type.tree</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <tree string="Property Types">
+                <field name="name"/>
+                <field name="type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="estate_property_type_form_view" model="ir.ui.view">
+        <field name="name">estate.property.type.form</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <form string="Property Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ... -->
+</odoo>
