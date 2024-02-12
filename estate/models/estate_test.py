@@ -37,17 +37,17 @@ class TestModel(models.Model):
 
     property_type_id = fields.Many2one('estate.property.type', 'property_id')
     buyer_id = fields.Many2one(
-        "res.partner",  # the model for the relation
-        string="Buyer",  # the field name in the form view
-        required=False,  # the field is not mandatory
-        help="The person who bought the property",  # the tooltip
-        copy=False,  # the field value is not copied when duplicating a record
+        "res.partner",
+        string="Buyer",
+        required=False,
+        help="The person who bought the property",
+        copy=False,
     )
     salesperson_id = fields.Many2one(
-        "res.users",  # the model for the relation
-        string="Salesperson",  # the field name in the form view
-        required=True,  # the field is mandatory
-        help="The user who sold the property",  # the tooltip
-        default=lambda self: self.env.user,  # the default value is the current user
-        copy=False,  # the field value is not copied when duplicating a record
+        "res.users",
+        string="Salesperson",
+        required=True,
+        help="The user who sold the property",
+        default=lambda self: self.env.user,
+        copy=False,
     )

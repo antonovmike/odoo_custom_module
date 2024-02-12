@@ -42,10 +42,10 @@
 
                             <page name="buyer_and_salesperson" string="Buyer and Salesperson" sequence="3">
                                 <group>
-                                <field name="buyer_id"/>
-                                <field name="salesperson_id"/>
+                                    <field name="buyer_id"/>
+                                    <field name="salesperson_id"/>
                                 </group>
-                                </page>
+                            </page>
                         </notebook>
                     </group>
                 </sheet>
