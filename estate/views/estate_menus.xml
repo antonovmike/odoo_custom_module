@@ -4,7 +4,7 @@
         <menuitem id="estate_first_level_menu" name="First Level">
             <menuitem id="estate_property_menu_action" action="estate_property_action"/>
         </menuitem>
+        <!-- New menu item for estate.property.tag -->
+        <menuitem id="estate_property_tag_menu_action" action="estate_property_tag_action"/>
     </menuitem>
-    <!-- New menu item for estate.property.tag -->
-    <menuitem id="estate_property_tag_menu_action" action="estate_property_tag_action"/>
 </odoo>
