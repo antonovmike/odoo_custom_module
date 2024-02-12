@@ -13,6 +13,9 @@
                 <field name="property_type_id"/>
                 <!-- The other fields -->
             </tree>
+            <tree string="Property Tags">
+                <!-- <field name="property_tag_id"/> -->
+            </tree>
         </field>
     </record>
 </odoo>
