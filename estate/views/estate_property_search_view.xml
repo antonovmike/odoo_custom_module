@@ -14,7 +14,9 @@
 
                 <filter name="state" string="Property State" domain="[('state','in',['new','offer_received'])]"/>
 
-               <filter name="property_type_id" string="Property Type" domain="[]"/>
+                <filter name="property_type_id" string="Property Type" domain="[]"/>
+
+                <!-- <filter name="property_tag_id" string="Property Tag" domain="[]"/> -->
 
                 <group expand="0" string="Group by">
                     <filter name="postcode" string="Postcode" domain="[]" context="{'group_by':'postcode'}"/>

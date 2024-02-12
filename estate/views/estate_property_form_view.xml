@@ -46,6 +46,13 @@
                                     <field name="salesperson_id"/>
                                 </group>
                             </page>
+
+                            <page name="type_and_tags" string="Type and Tags" sequence="4">
+                                <group>
+                                    <field name="property_type_id"/>
+                                    <field name="tag_ids"/>
+                                </group>
+                            </page>
                         </notebook>
                     </group>
                 </sheet>
