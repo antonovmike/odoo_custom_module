@@ -14,7 +14,7 @@
                 <!-- The other fields -->
             </tree>
             <tree string="Property Tags">
-                <!-- <field name="property_tag_id"/> -->
+                <field name="tag_ids"/>
             </tree>
         </field>
     </record>
