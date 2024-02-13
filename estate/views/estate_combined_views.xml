@@ -108,9 +108,9 @@
                                     <field name="tag_ids" widget="many2many_tags"/>
                                 </group>
                             </page>
-                            
-                            <page string="Offers" name="offers_tab">
-                                <field name="offer_ids" mode="tree,form"/>
+
+                            <page name="offers_tab" string="Offers">
+                                <field name="offer_ids" mode="tree,form" widget="one2many_offers"/>
                             </page>
                         </notebook>
                     </group>
