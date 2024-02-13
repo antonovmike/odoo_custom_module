@@ -108,6 +108,10 @@
                                     <field name="tag_ids" widget="many2many_tags"/>
                                 </group>
                             </page>
+                            
+                            <page string="Offers" name="offers_tab">
+                                <field name="offer_ids" mode="tree,form"/>
+                            </page>
                         </notebook>
                     </group>
                 </sheet>
@@ -168,4 +172,36 @@
         </field>
     </record> -->
     <!-- ... -->
+
+    <!-- Tree View -->
+    <record id="estate_property_offer_tree_view" model="ir.ui.view">
+        <field name="name">estate.property.offer.tree</field>
+        <field name="model">estate.property.offer</field>
+        <field name="arch" type="xml">
+            <tree string="Property Offers">
+                <field name="property_id"/>
+                <field name="price"/>
+                <field name="partner_id"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Form View -->
+    <record id="estate_property_offer_form_view" model="ir.ui.view">
+        <field name="name">estate.property.offer.form</field>
+        <field name="model">estate.property.offer</field>
+        <field name="arch" type="xml">
+            <form string="Property Offer">
+                <sheet>
+                    <group>
+                        <field name="property_id"/>
+                        <field name="price"/>
+                        <field name="partner_id"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>
