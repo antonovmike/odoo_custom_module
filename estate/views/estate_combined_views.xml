@@ -22,7 +22,7 @@
     </record>
     <!-- ... -->
 
-    <!-- Menus -->
+    <!-- Menus top bar -->
     <menuitem id="estate_menu_root" name="Add new estate">
         <menuitem id="estate_property_menu_action" action="estate_property_action"/>
 
@@ -33,7 +33,7 @@
     </menuitem>
     <!-- ... -->
 
-    <!-- Views -->
+    <!-- Properties list view -->
     <record id="estate_property_tree_view" model="ir.ui.view">
         <field name="name">estate.property.tree</field>
         <field name="model">estate.property</field>
@@ -105,7 +105,7 @@
                             <page name="type_and_tags" string="Type and Tags" sequence="4">
                                 <group>
                                     <field name="property_type_id"/>
-                                    <field name="tag_ids"/>
+                                    <field name="tag_ids" widget="many2many_tags"/>
                                 </group>
                             </page>
                         </notebook>
@@ -142,7 +142,7 @@
     <!-- ... -->
 
     <!-- Property Type Views -->
-    <record id="estate_property_type_tree_view" model="ir.ui.view">
+    <!-- <record id="estate_property_type_tree_view" model="ir.ui.view">
         <field name="name">estate.property.type.tree</field>
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">
@@ -166,6 +166,6 @@
                 </sheet>
             </form>
         </field>
-    </record>
+    </record> -->
     <!-- ... -->
 </odoo>
