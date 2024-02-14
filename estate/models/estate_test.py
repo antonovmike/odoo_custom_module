@@ -1,5 +1,5 @@
 from dateutil.relativedelta import relativedelta
-from odoo import fields, models
+from odoo import api, fields, models
 from odoo.fields import Datetime
 
 class TestModel(models.Model):
@@ -54,3 +54,11 @@ class TestModel(models.Model):
         default=lambda self: self.env.user,
         copy=False,
     )
+
+    commission = fields.Float(compute="_compute_commission")
+
+    @api.depends('selling_price')
+    def _compute_commission(self):
+        percent = 0.1
+        for record in self:
+            record.commission = record.selling_price * percent

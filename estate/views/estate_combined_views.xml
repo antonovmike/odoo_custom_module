@@ -75,6 +75,13 @@
                             <field name="living_area"/>
                         </group>
 
+                        <group>
+                            <label for="commission" string="Commission"/>
+                            <div>
+                                <field name="commission" readonly="1"/>
+                            </div>
+                        </group>
+
                         <notebook>
                             <page string="Details">
                                 <group>
@@ -110,7 +117,7 @@
                             </page>
 
                             <page name="offers_tab" string="Offers">
-                                <field name="offer_ids" mode="tree,form" widget="one2many_offers"/>
+                                <field name="offer_ids" widget="one2many_offers"/>
                             </page>
                         </notebook>
                     </group>
