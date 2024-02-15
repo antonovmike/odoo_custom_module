@@ -209,7 +209,7 @@
             </tree>
         </field>
     </record>
-    
+
     <!-- Form View -->
     <record id="estate_property_offer_form_view" model="ir.ui.view">
         <field name="name">estate.property.offer.form</field>
