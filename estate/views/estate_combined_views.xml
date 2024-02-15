@@ -89,6 +89,13 @@
                             </div>
                         </group>
 
+                        <group>
+                            <label for="best_price" string="Best Price"/>
+                            <div>
+                                <field name="best_price" readonly="1"/>
+                            </div>
+                        </group>
+
                         <notebook>
                             <page string="Details">
                                 <group>
