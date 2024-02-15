@@ -62,3 +62,10 @@ class TestModel(models.Model):
         percent = 0.1
         for record in self:
             record.commission = record.selling_price * percent
+
+    total_area = fields.Integer(compute="_compute_total_area", store=True)
+
+    @api.depends('living_area', 'garden_area')
+    def _compute_total_area(self):
+        for record in self:
+            record.total_area = record.living_area + record.garden_area

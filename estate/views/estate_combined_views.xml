@@ -82,6 +82,13 @@
                             </div>
                         </group>
 
+                        <group>
+                            <label for="total_area" string="Total Area"/>
+                            <div>
+                                <field name="total_area" readonly="1"/>
+                            </div>
+                        </group>
+
                         <notebook>
                             <page string="Details">
                                 <group>
