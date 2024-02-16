@@ -5,3 +5,7 @@ class TagModel(models.Model):
     _description = "Tags for Real Estate Properties"
 
     name = fields.Char(string="Name", required=True)
+
+    _sql_constraints = [
+        ('name_unique', 'UNIQUE(name)', 'Tag names must be unique!'),
+    ]

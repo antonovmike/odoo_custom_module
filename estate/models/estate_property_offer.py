@@ -39,10 +39,14 @@ class EstatePropertyOffer(models.Model):
                 })
                 offer.write({'status': 'accepted'})
             else:
-                raise exceptions.UserError(_("An offer can only be accepted for a property in 'new' or 'offer received' state."))
+                raise exceptions.UserError(("An offer can only be accepted for a property in 'new' or 'offer received' state."))
         return True
 
     def action_refuse(self):
         for offer in self:
             offer.write({'status': 'refused'})
         return True
+
+    _sql_constraints = [
+        ('price_positive', 'CHECK (price >  0)', 'The offer price must be positive!'),
+    ]

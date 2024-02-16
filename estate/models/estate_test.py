@@ -8,7 +8,7 @@ class TestModel(models.Model):
 
     date_in_three_months = Datetime.today() + relativedelta(months=3)
 
-    name = fields.Char(required=True, default="Alice")
+    name = fields.Char(required=True, default="Alice", unique=True)
     description = fields.Text(required=True, help="Please describe the estate")
     postcode = fields.Char(required=True)
     date_availability = fields.Date(default=date_in_three_months, copy=False)
@@ -94,7 +94,7 @@ class TestModel(models.Model):
             if record.state != 'sold':
                 record.state = 'canceled'
             else:
-                raise exceptions.UserError(_("Cannot cancel a sold property."))
+                raise exceptions.UserError(("Cannot cancel a sold property."))
         return True
 
     def action_sell(self):
@@ -102,5 +102,11 @@ class TestModel(models.Model):
             if record.state != 'canceled':
                 record.state = 'sold'
             else:
-                raise exceptions.UserError(_("Cannot sell a canceled property."))
+                raise exceptions.UserError(("Cannot sell a canceled property."))
         return True
+
+    _sql_constraints = [
+        ('name_unique', 'UNIQUE(name)', 'Tag names must be unique!'),
+        ('expected_price_positive', 'CHECK (expected_price >  0)', 'The expected price must be positive!'),
+        ('selling_price_positive', 'CHECK (selling_price >=  0)', 'The selling price must be positive!'),
+    ]

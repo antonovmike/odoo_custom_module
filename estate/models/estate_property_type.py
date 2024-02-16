@@ -8,3 +8,7 @@ class EstatePropertyType(models.Model):
     type = fields.Selection(
         [('new', 'New'), ('used', 'Used'), ('renovated', 'Renovated')], default='new'
     )
+
+    _sql_constraints = [
+        ('name_unique', 'UNIQUE(name)', 'Property type names must be unique!'),
+    ]
