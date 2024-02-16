@@ -1,5 +1,5 @@
 from datetime import timedelta
-from odoo import api, fields, models
+from odoo import api, exceptions, fields, models
 
 class EstatePropertyOffer(models.Model):
     _name = 'estate.property.offer'
@@ -28,3 +28,21 @@ class EstatePropertyOffer(models.Model):
             if record.date_deadline:
                 create_date = record.create_date.date()
                 record.validity = (record.date_deadline - create_date).days
+
+    def action_accept(self):
+        for offer in self:
+            if offer.property_id.state == 'new' or offer.property_id.state == 'offer_received':
+                offer.property_id.write({
+                    'buyer_id': offer.partner_id.id,
+                    'selling_price': offer.price,
+                    'state': 'sold',
+                })
+                offer.write({'status': 'accepted'})
+            else:
+                raise exceptions.UserError(_("An offer can only be accepted for a property in 'new' or 'offer received' state."))
+        return True
+
+    def action_refuse(self):
+        for offer in self:
+            offer.write({'status': 'refused'})
+        return True

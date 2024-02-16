@@ -60,6 +60,11 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <form string="Property">
+                <header>
+                    <button name="action_cancel" type="object" string="Cancel"/>
+                    <button name="action_sell" type="object" string="Sold"/>
+                </header>
+
                 <sheet>
                     <group>
                         <group>
@@ -216,6 +221,11 @@
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
             <form string="Property Offer">
+                <header>
+                    <button name="action_accept" type="object" string="Accept"/>
+                    <button name="action_refuse" type="object" string="Refuse"/>
+                </header>
+
                 <sheet>
                     <group>
                         <field name="property_id"/>
