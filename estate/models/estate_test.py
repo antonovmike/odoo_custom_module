@@ -1,6 +1,7 @@
 from dateutil.relativedelta import relativedelta
 from odoo import api, exceptions, fields, models
 from odoo.fields import Datetime
+from odoo.tools.float_utils import float_compare, float_is_zero
 
 class TestModel(models.Model):
     _name = "estate.property"
@@ -110,3 +111,10 @@ class TestModel(models.Model):
         ('expected_price_positive', 'CHECK (expected_price >  0)', 'The expected price must be positive!'),
         ('selling_price_positive', 'CHECK (selling_price >=  0)', 'The selling price must be positive!'),
     ]
+
+    @api.constrains('expected_price', 'selling_price')
+    def _check_selling_price(self):
+        for record in self:
+            if not float_is_zero(record.expected_price, precision_digits=2):
+                if float_compare(record.selling_price, record.expected_price *  0.9, precision_digits=2) <  0:
+                    raise exceptions.ValidationError(("The selling price cannot be lower than  90% of the expected price."))
