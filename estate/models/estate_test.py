@@ -8,7 +8,7 @@ class TestModel(models.Model):
 
     date_in_three_months = Datetime.today() + relativedelta(months=3)
 
-    name = fields.Char(required=True, default="Alice", unique=True)
+    name = fields.Char(required=True, default="Alice")
     description = fields.Text(required=True, help="Please describe the estate")
     postcode = fields.Char(required=True)
     date_availability = fields.Date(default=date_in_three_months, copy=False)
