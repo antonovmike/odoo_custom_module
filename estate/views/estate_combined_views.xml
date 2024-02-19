@@ -119,6 +119,8 @@
                                     <field name="active" string="Active"/>
                                     <field name="state" string="State"/>
                                 </group>
+                                <!-- Widget does not work -->
+                                <field name="state" widget="statusbar" statusbar_visible="open,posted,confirm"/>
                             </page>
 
                             <page name="buyer_and_salesperson" string="Buyer and Salesperson" sequence="3">
