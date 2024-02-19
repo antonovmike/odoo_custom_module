@@ -6,6 +6,7 @@ from odoo.tools.float_utils import float_compare, float_is_zero
 class TestModel(models.Model):
     _name = "estate.property"
     _description = "Estate test module"
+    _order = "id desc"
 
     date_in_three_months = Datetime.today() + relativedelta(months=3)
 

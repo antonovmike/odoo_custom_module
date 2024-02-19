@@ -4,6 +4,7 @@ from odoo import api, exceptions, fields, models
 class EstatePropertyOffer(models.Model):
     _name = 'estate.property.offer'
     _description = 'Real Estate Property Offer'
+    _order = "id desc"
 
     property_id = fields.Many2one('estate.property', string='Property', required=True)
     price = fields.Float(string='Price', required=True)
