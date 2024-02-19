@@ -117,10 +117,10 @@
                                 <group>
                                     <field name="date_availability" string="Date availability"/>
                                     <field name="active" string="Active"/>
-                                    <field name="state" string="State"/>
+                                    <!-- <field name="state" string="State"/> -->
+                                    <!-- Widget does not work -->
+                                    <field name="state" widget="statusbar" statusbar_visible="open,posted,confirm"/>
                                 </group>
-                                <!-- Widget does not work -->
-                                <field name="state" widget="statusbar" statusbar_visible="open,posted,confirm"/>
                             </page>
 
                             <page name="buyer_and_salesperson" string="Buyer and Salesperson" sequence="3">
