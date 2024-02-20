@@ -186,7 +186,8 @@
                 <filter name="postcode"/>
                 <filter name="expected_price"/>
                 <filter name="bedrooms"/>
-                <filter name="living_area"/>
+                <!-- <filter name="living_area" string="Living Area" filter_domain="[('living_area', '>=', self)]"/> -->
+                <filter name="living_area" string="Living Area" domain="[('living_area', '>=', self)]"/>
                 <filter name="facades"/>
 
                 <filter name="state" string="Property State" domain="[('state','in',['new','offer_received'])]"/>
