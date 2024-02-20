@@ -204,7 +204,7 @@
         <field name="name">estate.property.offer.tree</field>
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
-            <tree string="Property Offers" editable="bottom">
+            <tree string="Property Offers" decoration-muted="status=='refused'" decoration-info="status=='accepted'">
                 <field name="property_id"/>
                 <field name="price"/>
                 <field name="partner_id"/>
