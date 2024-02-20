@@ -210,8 +210,10 @@
         <field name="arch" type="xml">
             <form string="Property Offer">
                 <header>
-                    <button name="action_accept" type="object" string="Accept"/>
-                    <button name="action_refuse" type="object" string="Refuse"/>
+                    <!-- <button name="action_accept" type="object" string="Accept"/>
+                    <button name="action_refuse" type="object" string="Refuse"/> -->
+                    <button name="action_accept" type="object" string="Accept" attrs="{'invisible': [('status', 'not in', ['pending'])]}"/>
+                    <button name="action_refuse" type="object" string="Refuse" attrs="{'invisible': [('status', 'not in', ['pending'])]}"/>
                 </header>
 
                 <sheet>
@@ -222,6 +224,7 @@
                         <field name="status"/>
                         <field name="validity"/>
                         <field name="date_deadline"/>
+                        <!-- <field name="state" invisible="1"/> -->
                     </group>
                 </sheet>
             </form>
