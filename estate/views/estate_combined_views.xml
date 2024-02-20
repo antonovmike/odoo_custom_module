@@ -74,8 +74,6 @@
         <field name="arch" type="xml">
             <form string="Property">
                 <header>
-                    <!-- <button name="action_cancel" type="object" string="Cancel"/>
-                    <button name="action_sell" type="object" string="Sold"/> -->
                     <button name="action_cancel" type="object" string="Cancel" states="new,offer_received,offer_accepted"/>
                     <button name="action_sell" type="object" string="Sold" states="new,offer_received,offer_accepted"/>
                 </header>
@@ -154,7 +152,7 @@
                             </page>
 
                             <page name="offers_tab" string="Offers">
-                                <field name="offer_ids" widget="one2many_offers"/>
+                                <field name="offer_ids" widget="one2many_offers" attrs="{'readonly': [('state', 'in', ['offer_accepted', 'sold', 'canceled'])]}"/>
                             </page>
                         </notebook>
                     </group>
@@ -205,7 +203,7 @@
         </field>
     </record>
 
-    <!-- Form View -->
+    <!-- Property Offer Form View -->
     <record id="estate_property_offer_form_view" model="ir.ui.view">
         <field name="name">estate.property.offer.form</field>
         <field name="model">estate.property.offer</field>
