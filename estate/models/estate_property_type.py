@@ -5,7 +5,7 @@ class EstatePropertyType(models.Model):
     _description = "Real Estate Property Type"
     _order = "name"
 
-    sequence = fields.Integer()
+    sequence = fields.Integer('Sequence', default=1, help="Used to order stages. Lower is better.")
 
     name = fields.Char(string="Field", required=True)
     type = fields.Selection(
