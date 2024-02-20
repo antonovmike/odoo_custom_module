@@ -9,6 +9,17 @@ class EstatePropertyOffer(models.Model):
     property_id = fields.Many2one('estate.property', string='Property', required=True)
     price = fields.Float(string='Price', required=True)
     partner_id = fields.Many2one('res.partner', string='Partner', required=True)
+
+    # Check it
+    # https://www.odoo.com/documentation/16.0/developer/tutorials/getting_started/12_sprinkles.html#stat-buttons
+    property_type_id = fields.Many2one(
+        'estate.property.type',
+        string='Property Type',
+        related='property_id.property_type_id',
+        store=True,
+        readonly=True
+    )
+
     status = fields.Selection([
         ('pending', 'Pending'),
         ('accepted', 'Accepted'),

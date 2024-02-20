@@ -21,6 +21,14 @@
         <field name="res_model">estate.property.tag</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record id="estate_property_offer_action" model="ir.actions.act_window">
+        <field name="name">Offers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">estate.property.offer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('property_type_id', '=', active_id)]</field>
+    </record>    
     <!-- ... -->
 
     <!-- Menus top bar -->
@@ -262,8 +270,14 @@
                             </tree>
                         </field>
                     </group>
+                    <!-- Does not work -->
+                    <!-- https://www.odoo.com/documentation/16.0/developer/tutorials/getting_started/12_sprinkles.html#stat-buttons -->
+                    <group>
+                        <field name="offer_ids" widget="statinfo"/>
+                    </group>
                 </sheet>
             </form>
         </field>
-    </record>    
+    </record>
+    
 </odoo>
