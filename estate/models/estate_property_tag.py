@@ -10,3 +10,5 @@ class TagModel(models.Model):
     _sql_constraints = [
         ('name_unique', 'UNIQUE(name)', 'Tag names must be unique!'),
     ]
+
+    color = fields.Integer(string="Color")

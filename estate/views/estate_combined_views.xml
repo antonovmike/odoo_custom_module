@@ -57,7 +57,7 @@
                 <field name="postcode"/>
                 <field name="expected_price"/>
                 <field name="active"/>
-                <field name="property_type_id"/>
+                <field name="property_type_id" readonly="1"/>
                 <!-- The other fields -->
             </tree>
             <tree string="Property Tags">
@@ -146,7 +146,7 @@
                             <page name="type_and_tags" string="Type and Tags" sequence="4">
                                 <group>
                                     <field name="property_type_id"/>
-                                    <field name="tag_ids" widget="many2many_tags"/>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                                 </group>
                             </page>
 
