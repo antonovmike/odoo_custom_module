@@ -73,12 +73,7 @@
                 <!-- The other fields -->
             </tree>
             <tree string="Property Tags">
-                <!-- <field name="tag_ids"/> -->
-                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}">
-                    <tree editable="bottom">
-                        <field name="name"/>
-                    </tree>
-                </field>
+                <field name="tag_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
