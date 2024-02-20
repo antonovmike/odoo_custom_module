@@ -33,6 +33,17 @@
     </menuitem>
     <!-- ... -->
 
+    <record id="estate_property_tag_tree_view" model="ir.ui.view">
+        <field name="name">estate.property.tag.tree</field>
+        <field name="model">estate.property.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Property Tags" editable="bottom">
+                <field name="name"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+    
     <!-- Tree View for Property Types -->
     <record id="estate_property_type_tree_view" model="ir.ui.view">
         <field name="name">estate.property.type.tree</field>
@@ -58,10 +69,16 @@
                 <field name="expected_price"/>
                 <field name="active"/>
                 <field name="property_type_id" readonly="1"/>
+                <field name="date_availability" optional="1"/>
                 <!-- The other fields -->
             </tree>
             <tree string="Property Tags">
-                <field name="tag_ids"/>
+                <!-- <field name="tag_ids"/> -->
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}">
+                    <tree editable="bottom">
+                        <field name="name"/>
+                    </tree>
+                </field>
             </tree>
         </field>
     </record>
@@ -192,7 +209,7 @@
         <field name="name">estate.property.offer.tree</field>
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
-            <tree string="Property Offers">
+            <tree string="Property Offers" editable="bottom">
                 <field name="property_id"/>
                 <field name="price"/>
                 <field name="partner_id"/>
@@ -224,7 +241,6 @@
                         <field name="status"/>
                         <field name="validity"/>
                         <field name="date_deadline"/>
-                        <!-- <field name="state" invisible="1"/> -->
                     </group>
                 </sheet>
             </form>
