@@ -119,3 +119,9 @@ class TestModel(models.Model):
             if not float_is_zero(record.expected_price, precision_digits=2):
                 if float_compare(record.selling_price, record.expected_price *  0.9, precision_digits=2) <  0:
                     raise exceptions.ValidationError(("The selling price cannot be lower than  90% of the expected price."))
+
+    def unlink(self):
+        for record in self:
+            if record.state not in ['new', 'canceled']:
+                raise exceptions.UserError("Cannot delete a property that is not in 'New' or 'Canceled' state.")
+        return super(TestModel, self).unlink()
