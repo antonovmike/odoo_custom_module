@@ -64,6 +64,10 @@ class EstatePropertyOffer(models.Model):
         ('price_positive', 'CHECK (price >  0)', 'The offer price must be positive!'),
     ]
 
+    """
+    Causes a warning:
+    WARNING rd-mydb odoo.api.create: The model odoo.addons.estate.models.estate_property_offer is not overriding the create method in batch 
+    """
     # @api.model
     # def create(self, vals):
     #     # Call the original create method to create the offer
