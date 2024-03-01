@@ -64,16 +64,31 @@ class EstatePropertyOffer(models.Model):
         ('price_positive', 'CHECK (price >  0)', 'The offer price must be positive!'),
     ]
 
+    # @api.model
+    # def create(self, vals):
+    #     # Call the original create method to create the offer
+    #     offer = super(EstatePropertyOffer, self).create(vals)
+    #     # Set the property state to 'Offer Received'
+    #     offer.property_id.write({'state': 'offer_received'})
+        
+    #     # Check if the new offer's price is lower than the best price of existing offers
+    #     best_price = offer.property_id.best_price
+    #     if float_compare(offer.price, best_price, precision_digits=2) < 0:
+    #         raise exceptions.ValidationError("The offer price cannot be lower than the best price of existing offers.")
+        
+    #     return offer
+
     @api.model
-    def create(self, vals):
-        # Call the original create method to create the offer
-        offer = super(EstatePropertyOffer, self).create(vals)
-        # Set the property state to 'Offer Received'
-        offer.property_id.write({'state': 'offer_received'})
-        
-        # Check if the new offer's price is lower than the best price of existing offers
-        best_price = offer.property_id.best_price
-        if float_compare(offer.price, best_price, precision_digits=2) < 0:
-            raise exceptions.ValidationError("The offer price cannot be lower than the best price of existing offers.")
-        
-        return offer
+    def create(self, vals_list):
+        results = []
+        for vals in vals_list:
+            offer = super(EstatePropertyOffer, self).create(vals)
+            offer.property_id.write({'state': 'offer_received'})
+            best_price = offer.property_id.best_price
+
+            if float_compare(offer.price, best_price, precision_digits=2) < 0:
+                raise exceptions.ValidationError("The offer price cannot be lower than the best price of existing offers.")
+            
+            results.append(offer.id)
+
+        return self.browse(results)
