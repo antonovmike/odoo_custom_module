@@ -70,14 +70,6 @@ class EstatePropertyOffer(models.Model):
         offer = super(EstatePropertyOffer, self).create(vals)
         # Set the property state to 'Offer Received'
         offer.property_id.write({'state': 'offer_received'})
-        return offer
-
-    @api.model
-    def create(self, vals):
-        # Call the original create method to create the offer
-        offer = super(EstatePropertyOffer, self).create(vals)
-        # Set the property state to 'Offer Received'
-        offer.property_id.write({'state': 'offer_received'})
         
         # Check if the new offer's price is lower than the best price of existing offers
         best_price = offer.property_id.best_price
