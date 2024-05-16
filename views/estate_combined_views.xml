@@ -44,6 +44,22 @@
     </menuitem>
     <!-- ... -->
 
+    <!-- Inherit the user form view -->
+    <record id="view_users_form_inherit" model="ir.ui.view">
+        <field name="name">Users Form Inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+            <!-- Add a new notebook page after the last one -->
+            <xpath expr="//notebook/page[last()]" position="after">
+                <page string="Properties">
+                    <!-- Add the property_ids field -->
+                    <field name="property_ids"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
     <record id="estate_property_tag_tree_view" model="ir.ui.view">
         <field name="name">estate.property.tag.tree</field>
         <field name="model">estate.property.tag</field>
@@ -54,7 +70,7 @@
             </tree>
         </field>
     </record>
-    
+
     <!-- Tree View for Property Types -->
     <record id="estate_property_type_tree_view" model="ir.ui.view">
         <field name="name">estate.property.type.tree</field>
@@ -280,5 +296,4 @@
             </form>
         </field>
     </record>
-    
 </odoo>
